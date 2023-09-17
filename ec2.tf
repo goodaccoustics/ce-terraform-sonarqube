@@ -1,6 +1,6 @@
 resource "aws_instance" "ec2" {
   ami                         = "ami-053b0d53c279acc90"
-  instance_type               = "t2.micro"
+  instance_type               = "t2.small"
   associate_public_ip_address = true
   key_name                    = local.keypair
   subnet_id                   = aws_subnet.public_subnet.id

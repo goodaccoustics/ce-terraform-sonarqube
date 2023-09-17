@@ -100,5 +100,3 @@ resource "aws_security_group" "security_group" {
     Name = "${local.resource_prefix}-security-group"
   }
 }
-
-
