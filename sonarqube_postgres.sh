@@ -102,7 +102,7 @@ sudo touch /etc/nginx/sites-available/sonarqube
 sudo bash -c 'sudo cat <<EOT> /etc/nginx/sites-available/sonarqube
 server{
     listen      80;
-    server_name todo.replace.with.domainname.or.host.ipaddress;
+    server_name #server_public_ip#;
 
     access_log  /var/log/nginx/sonar.access.log;
     error_log   /var/log/nginx/sonar.error.log;
@@ -123,6 +123,7 @@ server{
 }
 EOT'
 ln -s /etc/nginx/sites-available/sonarqube /etc/nginx/sites-enabled/sonarqube
+sed -i 's/#server_public_ip#/test123/g' /etc/nginx/sites-available/sonarqube
 
 # reload the new systemd service for sonarqube created above
 sudo systemctl daemon-reload
